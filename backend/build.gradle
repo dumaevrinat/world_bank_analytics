@@ -1,3 +1,9 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.3.1.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
@@ -7,12 +13,6 @@ plugins {
 group = 'com.firstline'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-}
 
 tasks{
 	bootJar {
