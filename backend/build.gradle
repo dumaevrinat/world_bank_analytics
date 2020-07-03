@@ -20,6 +20,10 @@ tasks{
 	}
 }
 
+jar {
+	project.version=""
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
