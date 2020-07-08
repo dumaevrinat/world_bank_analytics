@@ -31,16 +31,16 @@ buildscript{
 tasks.register("selectFromTable"){
     doLast{
         try{
-            val jsch = JSch()
+            /*val jsch = JSch()
             val session: Session = jsch.getSession("aivanov", "195.209.231.228", 20322)
             session.setPassword("aiva1914Pass")
             session.setConfig("StrictHostKeyChecking", "no")
             session.connect()
-            session.setPortForwardingL(2485, "localhost", 10000)
+            session.setPortForwardingL(2485, "localhost", 10000)*/
 
             Class.forName("org.apache.hive.jdbc.HiveDriver")
 
-            val connection = DriverManager.getConnection("jdbc:hive2://localhost:2485/wb_prediction", "hive_user", "hive_password")
+            val connection = DriverManager.getConnection("jdbc:hive2://localhost:10000/wb_prediction", "hive_user", "hive_password")
             val statement = connection.createStatement()
             val respond = statement.executeQuery("select * from education")
 
@@ -62,7 +62,7 @@ tasks.register("selectFromTable"){
             respond.close()
             statement.close()
             connection.close()
-            session.disconnect()
+            //session.disconnect()
         } catch(e: java.sql.SQLException){
             println(e.message)
         }
