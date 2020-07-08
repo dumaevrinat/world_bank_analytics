@@ -1,5 +1,3 @@
-import com.jcraft.jsch.JSch
-import com.jcraft.jsch.Session
 import java.sql.DriverManager
 
 plugins {
@@ -31,13 +29,6 @@ buildscript{
 tasks.register("selectFromTable"){
     doLast{
         try{
-            /*val jsch = JSch()
-            val session: Session = jsch.getSession("aivanov", "195.209.231.228", 20322)
-            session.setPassword("aiva1914Pass")
-            session.setConfig("StrictHostKeyChecking", "no")
-            session.connect()
-            session.setPortForwardingL(2485, "localhost", 10000)*/
-
             Class.forName("org.apache.hive.jdbc.HiveDriver")
 
             val connection = DriverManager.getConnection("jdbc:hive2://localhost:10000/wb_prediction", "hive_user", "hive_password")
@@ -62,7 +53,6 @@ tasks.register("selectFromTable"){
             respond.close()
             statement.close()
             connection.close()
-            //session.disconnect()
         } catch(e: java.sql.SQLException){
             println(e.message)
         }
