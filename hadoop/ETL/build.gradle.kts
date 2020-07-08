@@ -36,36 +36,27 @@ tasks.register("selectFromTable"){
             session.setPassword("aiva1914Pass")
             session.setConfig("StrictHostKeyChecking", "no")
             session.connect()
-            session.setPortForwardingL(5555, "localhost", 10000)
+            session.setPortForwardingL(2485, "localhost", 10000)
 
             Class.forName("org.apache.hive.jdbc.HiveDriver")
-            /*for (i in 5001..6000) {
-                try {
-                    session.setPortForwardingL(11000 + i - 1023, "localhost", i)
-                    val url: String = "jdbc:hive2://localhost:" + i + "/wb_prediction"
-                    val connection = DriverManager.getConnection(url, "hive_user", "hive_password")
 
-                    print(i)
-                    println(" Success!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                } catch(e: java.sql.SQLException){
-                    //print(i)
-                    //println(" Fail")
-                } finally {
-
-                }
-            }*/
-
-            val connection = DriverManager.getConnection("jdbc:hive2://localhost:5555/wb_prediction", "hive_user", "hive_password")
+            val connection = DriverManager.getConnection("jdbc:hive2://localhost:2485/wb_prediction", "hive_user", "hive_password")
             val statement = connection.createStatement()
             val respond = statement.executeQuery("select * from education")
 
             val columnsNumber: Int = respond.getMetaData().getColumnCount()
 
             while (respond.next()) {
+                print("| ")
                 for (i in 1..columnsNumber) {
-                    print(respond.getString(i).toString() + " ")
+                    print(i.toString() + ": " + respond.getString(i).toString() + " | ")
                 }
                 println()
+            }
+
+            print("| ")
+            for (i in 1..columnsNumber) {
+                print(i.toString() + ": " + respond.getMetaData().getColumnLabel(i) + " | ")
             }
 
             respond.close()
