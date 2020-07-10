@@ -9,7 +9,7 @@ plugins {
 }
 
 flyway {
-    url = 'jdbc:postgresql://localhost:5432/wba'
+    url = 'jdbc:postgresql://192.168.70.202:5432/wba'
     user = 'wba'
     password = 'wba_password'
 }
