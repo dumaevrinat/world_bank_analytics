@@ -11,7 +11,7 @@ create table fin_sector (
     claims_on_central_government_etc___gdp real,
     claims_on_other_sectors_of_the_domestic_economy__of_gdp real,
     claims_on_private_sector_annual_growth_as__of_broad_money real,
-    claims_on_other_sectors_of_the_domestic_economy_annual_growth_as real comment 'claims_on_other_sectors_of_the_domestic_economy_annual_growth_as__of_broad_money',
+    claims_on_other_sectors_of_the_domestic_economy_annual_growth_as real,
     bank_capital_to_assets_ratio real,
     bank_liquid_reserves_to_bank_assets_ratio real,
     bank_nonperforming_loans_to_total_gross_loans real,
@@ -34,3 +34,5 @@ create table fin_sector (
     stocks_traded_total_value_current_us real,
     s_p_global_equity_indices_annual__change real
 );
+
+comment on column fin_sector.claims_on_other_sectors_of_the_domestic_economy_annual_growth_as is 'claims_on_other_sectors_of_the_domestic_economy_annual_growth_as__of_broad_money';
