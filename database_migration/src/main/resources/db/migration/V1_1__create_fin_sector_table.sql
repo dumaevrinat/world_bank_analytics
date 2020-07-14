@@ -1,4 +1,5 @@
 create table fin_sector (
+    id serial primary key,
     country_name varchar(200),
     country_code varchar(200),
     time integer,
