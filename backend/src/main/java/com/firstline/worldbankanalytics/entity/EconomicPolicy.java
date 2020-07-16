@@ -17,7 +17,7 @@ public class EconomicPolicy {
     private String countryName;
 
     @Column(name = "time")
-    private int time;
+    private Integer time;
 
     @Column(name = "gdp_growth_annual")
     private double gdpGrowthAnnual;
