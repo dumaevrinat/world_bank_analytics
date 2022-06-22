@@ -1,4 +1,4 @@
-numpy==1.19.0
+numpy==1.22.0
 pandas==1.0.5
 patsy==0.5.1
 psycopg2==2.8.5
